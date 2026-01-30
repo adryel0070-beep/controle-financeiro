@@ -24,10 +24,10 @@
     <h2>➕ Nova despesa</h2>
 
     <form id="form-despesa">
-      <label>Mês</label>
+      <label>Mês inicial</label>
       <input type="month" id="mes" required>
 
-      <label>Valor (R$)</label>
+      <label>Valor da parcela (R$)</label>
       <input type="number" id="valor" step="0.01" required>
 
       <label>Descrição</label>
@@ -43,7 +43,7 @@
         <option value="Outros">Outros</option>
       </select>
 
-      <label>Parcelas</label>
+      <label>Quantidade de parcelas</label>
       <input type="number" id="parcelas" min="1" value="1">
 
       <button type="submit">Salvar despesa</button>
@@ -53,10 +53,12 @@
   <!-- ABA CONSULTAR -->
   <section id="consultar" class="tab-content">
     <h2>📊 Consultar gastos</h2>
+
     <div class="acoes">
-        <button id="btn-exportar">⬇ Exportar CSV</button>
-        <button onclick="window.print()">🖨 Imprimir</button>
+      <button id="btn-exportar">⬇ Exportar CSV</button>
+      <button onclick="window.print()">🖨 Imprimir</button>
     </div>
+
     <div class="filtros">
       <select id="filtro-mes">
         <option value="">Todos os meses</option>
@@ -76,14 +78,17 @@
             <th>Valor</th>
             <th>Parcela</th>
             <th>Categoria</th>
+            <th>Ações</th>
           </tr>
         </thead>
+
         <tbody id="tabela-consulta"></tbody>
+
         <tfoot>
           <tr>
             <td colspan="2"><strong>Total</strong></td>
             <td id="total-geral"></td>
-            <td colspan="2"></td>
+            <td colspan="3"></td>
           </tr>
         </tfoot>
       </table>
