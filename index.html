@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle Financeiro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>💳 Controle Financeiro</h1>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="inserir">Inserir</button>
+  <button class="tab" data-tab="consultar">Consultar</button>
+</nav>
+
+<main>
+
+  <!-- ABA INSERIR -->
+  <section id="inserir" class="tab-content active">
+    <h2>➕ Nova despesa</h2>
+
+    <form id="form-despesa">
+      <label>Mês</label>
+      <input type="month" id="mes" required>
+
+      <label>Valor (R$)</label>
+      <input type="number" id="valor" step="0.01" required>
+
+      <label>Descrição</label>
+      <input type="text" id="descricao" required>
+
+      <label>Categoria</label>
+      <select id="categoria" required>
+        <option value="">Selecione</option>
+        <option value="Alimentação">Alimentação</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Lazer">Lazer</option>
+        <option value="Moradia">Moradia</option>
+        <option value="Outros">Outros</option>
+      </select>
+
+      <label>Parcelas</label>
+      <input type="number" id="parcelas" min="1" value="1">
+
+      <button type="submit">Salvar despesa</button>
+    </form>
+  </section>
+
+  <!-- ABA CONSULTAR -->
+  <section id="consultar" class="tab-content">
+    <h2>📊 Consultar gastos</h2>
+    <div class="acoes">
+        <button id="btn-exportar">⬇ Exportar CSV</button>
+        <button onclick="window.print()">🖨 Imprimir</button>
+    </div>
+    <div class="filtros">
+      <select id="filtro-mes">
+        <option value="">Todos os meses</option>
+      </select>
+
+      <select id="filtro-categoria">
+        <option value="">Todas as categorias</option>
+      </select>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Ano</th>
+            <th>Mês</th>
+            <th>Valor</th>
+            <th>Parcela</th>
+            <th>Categoria</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-consulta"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2"><strong>Total</strong></td>
+            <td id="total-geral"></td>
+            <td colspan="2"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
