@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '<td>R$ ' + d.valor.toFixed(2) + '</td>' +
           '<td>' + d.parcelaAtual + '/' + d.totalParcelas + '</td>' +
           '<td>' + d.categoria + '</td>' +
+          '<td>' + d.descricao + '</td>' +
           '<td><button data-id="' + d.id + '">🗑</button></td>'
 
         tr.querySelector('button').addEventListener('click', function () {
@@ -174,7 +175,8 @@ document.addEventListener('DOMContentLoaded', function () {
       csv += partes[0] + ',' + partes[1] + ',' +
              d.valor.toFixed(2) + ',' +
              d.parcelaAtual + '/' + d.totalParcelas + ',' +
-             d.categoria + '\n'
+             d.categoria + 
+             d.descricao + '\n'
     })
 
     var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
@@ -185,3 +187,4 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
 })
+
